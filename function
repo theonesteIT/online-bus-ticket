@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="" method="post">
+    <input type="number" name="number" id="" min="1" max="9">
+    <input type="submit" name="submit" value="check">
+</form>
+</body>
+</html>
+<?php
+function checkBet($number){
+    $checknumber = rand(1,9);
+    try{
+       if($checknumber == $number){
+        echo"you hit the jackpot number,{$checknumber}";
+       }else{
+        throw new Expection("sorry you loose", 1);
+       }
+    }catch(Expection $e){
+        echo $e->getMessage();
+    }
+    finally{
+        echo"Sorry you loose the really number is {$checknumber}";
+    }
+}
+if(isset($_POST['submit'])){
+    $number = $_POST['number'];
+    checkBet($number);
+}
+//$number=$_POST['number'];
+//$number=$_POST['name'];
+?>
+//ror the function code jackpot number
